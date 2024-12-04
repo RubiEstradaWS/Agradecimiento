@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="    all.min.css" rel="stylesheet">
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <script href="./Js/bootstrap.bundle.min.js" rel="stylesheet"></script>
+    <link rel="stylesheet" href="Agradecimiento.css">
+    <title>Agradecimiento</title>
+</head>
+<body>
+
+    <header style="background: linear-gradient(to right, #ff7e5f, #feb47b); color: white; text-align: center; padding: 20px;">
+        <h1>Un mensaje de gratitud para un maestro inolvidable</h1>
+    </header>
+    
+    <main>
+        <div id="mensajePrincipal"></div>
+    </main>
+    <article id="agradecimientos"></article>
+    <aside id="deseos"></aside>
+
+    <script>
+        // Usando Map para manejar el contenido
+        const contentMap = new Map();
+
+        contentMap.set('mensajePrincipal', `
+       
+        <h4> Lo quiero mucho, profe 💕. Desde el principio debo confesar que sus materias me intimidaban bastante, incluso antes de comenzar. Había algo en los números, las fórmulas y los conceptos complejos que me hacía dudar de mí misma, y honestamente, me daba miedo enfrentarme a todo eso. Hubo ocasiones en las que me sentía perdida, sin entender nada de lo que estaba pasando en clase, y llegué a pensar que jamás podría dominar esos temas. Pero gracias a su forma tan especial de explicar, poco a poco fui entendiendo. Usted no solo enseña, sino que logra que las cosas que parecen imposibles se vuelvan alcanzables, y eso es algo que siempre voy a admirar. ❤️
+
+Sus clases, aunque exigentes y estresantes, también tenían un lado único. El estrés no venía de usted, sino de los números interminables y las fórmulas que nos ponían a prueba. Pero siempre había un momento en el que lograba arrancarnos una sonrisa o una carcajada con sus comentarios y conversaciones con mis compañeros. Esos momentos eran como un respiro en medio de la tormenta; lograban que me relajara y que pudiera volver a concentrarme con una mejor actitud.
+
+Sus clases no solo eran un espacio para aprender; se convirtieron en una de las principales razones por las que nunca faltaba. No quería perderme la oportunidad de escuchar sus enseñanzas, aprender de su experiencia, y por supuesto, recibir esa firma tan especial que se ha vuelto inolvidable para mí.
+
+Profe, quiero agradecerle de todo corazón por su paciencia, por su forma de enseñar y por el impacto positivo que ha tenido en mi vida. Sé que no soy la única que piensa así, pero cada uno de nosotros guarda un pedacito de usted en sus recuerdos y aprendizajes. Gracias por cada explicación, por cada fórmula y por cada momento que compartió con nosotros.
+
+Lo voy a extrañar muchísimo. Espero que siempre recuerde el cariño que le tenemos, porque estoy segura de que ha dejado una huella imborrable en cada uno de sus estudiantes. Cuídese mucho, porque aún tiene muchas más vidas que inspirar y transformar con su pasión por la enseñanza. 🙏
+
+"Casi todo se puede comprobar con matemáticas. Por eso hay que ser agradecidos con aquellos que se dedican a enseñárnosla".</h4>
+        `);
+
+        contentMap.set('agradecimientos', `
+            <div class="face front">
+                <img src="img/fondo2.png" alt="">
+                <h3>Gracias por...</h3>
+            </div>
+            <div class="face back">
+                <h3>Agradezco por:</h3>
+                <p><br> *Por su paciencia <br> *Por su dedicación <br> *Por sus enseñanzas <br> *Por las risas</p>
+                <p>Por aquellos momentos donde no entendíamos nada sobre el tema y nos decía "Tontos", dando origen a nuestro apodo de "Ingenieros Guangos". </p>
+                <h5><b>Uno recuerda con aprecio a sus maestros brillantes, pero con gratitud a aquellos que tocaron nuestros sentimientos</b></h5>
+                <p>GRACIAS POR TODO</p>
+            </div>
+        `);
+
+        contentMap.set('deseos', `
+            <div class="face front">
+                <img src="img/fondo3.jpg" alt="">
+                <h3>Le deseo lo mejor...</h3>
+            </div>
+            <div class="face back">
+                <h3>Con gratitud: Rubi :D</h3>
+                <p>Deseo expresarle mis más sinceros deseos. Su dedicación, paciencia y esfuerzo inquebrantable son una fuente de inspiración para todos los que tienen el privilegio de aprender de usted. Confío en que la vida le recompense con la misma pasión y sabiduría que brinda generosamente a los demás.</p>   
+                <p>Que cada día esté lleno de éxitos, alegría y la satisfacción de ver el impacto positivo que tiene en las vidas de sus estudiantes. Le deseo salud, felicidad y muchos logros en su camino.</p>
+            </div>
+        `);
+
+        // Inyectar contenido en los contenedores correspondientes
+        document.getElementById('mensajePrincipal').innerHTML = contentMap.get('mensajePrincipal');
+        document.getElementById('agradecimientos').innerHTML = contentMap.get('agradecimientos');
+        document.getElementById('deseos').innerHTML = contentMap.get('deseos');
+    </script>
+</body>
+</html>
