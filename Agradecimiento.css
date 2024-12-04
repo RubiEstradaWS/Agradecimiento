@@ -1,76 +1,94 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Josefin+Sans:wght@500&family=Ponnala&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
-body{
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Josefin+Sans:wght@500&family=Ponnala&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
     background-image: url(./img/fondo1.jpg);
     background-size: cover;
-    height: 100vh;
+    min-height: 100vh; /* Cambiado a min-height para asegurar contenido responsivo */
     display: grid;
-    grid-template-columns:repeat(2,1fr);
-    grid-template-rows:80px 450px 450px;
-    margin-top: 20px;
-    gap:10px;    
-    font-family: "Sour Gummy", serif;}
-header{
-    grid-column: 1/3;
+    grid-template-columns: 1fr; /* Una sola columna */
+    grid-template-rows: auto auto auto auto; /* Cada elemento tiene su propia fila */
+    gap: 10px;
+    margin: 20px;
+    font-family: "Sour Gummy", serif;
+}
+
+header {
     grid-row: 1;
+    text-align: center;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    font-size: 1.5rem;
+    border-radius: 5px;
 }
-main{
-    grid-column: 1;
-    grid-row: 2/3;
+
+main {
+    grid-row: 2;
     text-align: justify;
-    padding: 5px;
- 
+    padding: 15px;
 }
-#mensajePrincipal{
+
+#mensajePrincipal {
     background: transparent;
     backdrop-filter: blur(20px);
 }
-article{
-    grid-column: 2;
-    grid-row: 2;
-    position: relative;
-    width: 450px;
-    margin: 0 auto;
+
+section {
+    grid-row: 3;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas para las tarjetas */
+    gap: 20px; /* Espacio entre tarjetas */
 }
-aside{
-    grid-column: 2;
-    grid-row: 3; 
+
+/* Tarjetas */
+article, aside {
     position: relative;
-    width: 450px;
-    margin: 0 auto;
+    width: 100%; /* Ocupan el espacio de su columna */
+    max-width: 450px; /* Limita el ancho */
+    height: 450px;
+    margin: 0 auto; /* Centra en dispositivos pequeños */
+    perspective: 1000px; /* Perspectiva para animación 3D */
 }
-.face{
+
+
+/* Estilos de las tarjetas */
+.face {
     position: absolute;
     width: 100%;
-    height:400px;
+    height: 100%;
     backface-visibility: hidden;
     border-radius: 10px;
     overflow: hidden;
-    transition: 2s;
+    transition: transform 0.6s ease;
 }
-.front{
-    transform: perspective(600px) rotateY(0deg);
+
+.front {
+    transform: rotateY(0deg);
     box-shadow: 0 5px 10px #000;
 }
-.front img{
+
+.front img {
     position: absolute;
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-.front h3{
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 45px;
-  line-height: 45px;
-  color: white;
-  background: rgba(0, 0, 0, .4);  
-  text-align: center;
+
+.front h3 {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    color: white;
+    background: rgba(0, 0, 0, .4);
+    text-align: center;
 }
 
-.back{
-    transform: perspective(600px) rotateY(180deg);
-    background: rgb(235, 99, 107);  
+.back {
+    transform: rotateY(180deg);
+    background: rgb(235, 99, 107);
     padding: 10px;
     color: white;
     display: flex;
@@ -79,27 +97,63 @@ aside{
     text-align: center;
     box-shadow: 0 5px 10px #000;
 }
-.back h3{
-font-size: 30px;
-margin-top: 20px;
-letter-spacing: 2px;
-}
-.back p{
-    letter-spacing: 1px;
-}
-article:hover .front{
-    transform: perspective(600px) rotateY(180deg);
 
+article:hover .front,
+aside:hover .front {
+    transform: rotateY(180deg);
 }
-article:hover .back{
-    transform: perspective(600px) rotateY(360deg);
 
+article:hover .back,
+aside:hover .back {
+    transform: rotateY(360deg);
 }
-aside:hover .front{
-    transform: perspective(600px) rotateY(180deg);
 
+/* Media queries para dispositivos móviles */
+@media (max-width: 768px) {
+    body {
+        grid-template-columns: 1fr; /* Todo en una sola columna */
+        grid-template-rows: 150px  600px 250px; /* Cada elemento tiene su propia fila */
+    }
+
+    main, article, aside {
+        width: 100%; /* Asegura que ocupen todo el ancho */
+        max-width: none;
+        height: 200px;
+        margin-bottom: 30px;
+    }
+main{
+    width: 100%; /* Asegura que ocupen todo el ancho */
+    max-width: none;
+    height: 600px;
+    overflow-x: auto;
 }
-aside:hover .back{
-    transform: perspective(600px) rotateY(360deg);
 
+    .face {
+        height: 300px; /* Reduce la altura */
+    }
+
+    .back h3 {
+        font-size:10px; /* Ajusta tamaño del texto */
+    }
+}
+
+@media (max-width: 480px) {
+    .face {
+        height: 250px; /* Reduce más en pantallas pequeñas */
+    }
+
+    .front h3 {
+        font-size:12px; /* Texto más pequeño */
+    }
+
+    .back h3 {
+        font-size: 10px;
+    }
+    .back h5 {
+        font-size:10px;
+    }
+
+    .back p {
+        font-size: 9px; /* Mejora la legibilidad */
+    }
 }
